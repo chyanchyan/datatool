@@ -80,7 +80,7 @@ def main():
 
         for index, row in data_sources.iterrows():
             try:
-                data[str(row['data_id'])] = pd.read_csv(str(row['path']))
+                data[str(row['data_id'])] = pd.read_csv(str(row['path']), encoding='utf-8')
             except FileNotFoundError:
                 res.append((str(row['data_id']), '%s 数据路径不存在' % row['path']))
                 data_valid_flag = False
